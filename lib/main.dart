@@ -10,11 +10,28 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Flutter Tugas 1",
-      home: TampilanMaster(),
-      // home: TampilanCard(),
-      // home: TampilanGridView(),
-      // home: TampilanListView(),
+      home: DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          appBar: AppBar(
+            bottom: TabBar(
+              tabs: [
+                Tab(icon: Icon(Icons.credit_card)),
+                Tab(icon: Icon(Icons.grid_on)),
+                Tab(icon: Icon(Icons.list)),
+              ],
+            ),
+            title: Text('Flutter Tugas 1'),
+          ),
+          body: TabBarView(
+            children: [
+              TampilanCard(),
+              TampilanGridView(),
+              TampilanListView(),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
